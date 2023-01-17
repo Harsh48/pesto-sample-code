@@ -1,0 +1,42 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Jhiwh",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:3000",
+    "basePath": "/v1/api",
+    "paths" : {
+        "/users" : {
+            "get" : {
+                "summary" : "Get all the users",
+                "description": "Get all the users",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        }
+    }
+}
