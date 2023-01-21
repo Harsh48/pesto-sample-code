@@ -11,6 +11,16 @@ require('dotenv').config()
 // connecting to db
 connectDB();
 
+const corsOpts = {
+    origin: "*",
+  
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  
+    allowedHeaders: ["Content-Type", "x-access-token"],
+  };
+  
+  app.use(cors(corsOpts));
+
 app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerDoc));
 
 app.use(express.urlencoded({extended:true}))

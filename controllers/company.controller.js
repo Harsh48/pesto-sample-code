@@ -5,7 +5,7 @@ const uuid = require('uuid').v4;
  
 const getAllCompany = async(req,res)=>{
     try{
-        const company =await Company.find()
+        const company =await Company.find({},{name:1,apiKey:1,userCount:1,validity:1,_id:0})
         res.json(company)
       }catch(err){
         console.log(err)
@@ -14,7 +14,7 @@ const getAllCompany = async(req,res)=>{
 
 const getCompanyById = async(req,res)=>{
     try{
-        const company =await Company.findById(req.params.id)
+        const company =await Company.findById(req.params.id,{name:1,apiKey:1,userCount:1,validity:1,_id:0})
         res.json(company)
       }catch(err){
         console.log(err)
