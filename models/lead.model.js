@@ -1,0 +1,24 @@
+const mongoose = require('mongoose')
+
+const Schema = mongoose.Schema
+
+const LeadSchema = new Schema({
+   name:{
+    type: String
+   },
+   email:{
+    type: String
+   },
+   countryCode:{
+    type: String,
+   },
+   CampaignId:{
+    type: String
+   },
+   phone:{
+    type: Number
+   }
+}
+)
+
+module.exports = mongoose.model('Lead', LeadSchema)
