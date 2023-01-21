@@ -37,10 +37,19 @@ const createLeads= async(req,res)=>{
     }
 }
 
- 
+
+const assignLeads= async(req,res)=>{
+    try{
+        await Lead.findByIdAndUpdate(req.params.id,{assigneeId:req.body.assigneeId})
+        res.json({msg:'Lead successfully assigned to Sales'})
+      }catch(err){
+        console.log(err)
+      }
+  }
 
 module.exports ={  
 createLeads,
 getAllLeads,
-getLeadsById
+getLeadsById,
+assignLeads
 }

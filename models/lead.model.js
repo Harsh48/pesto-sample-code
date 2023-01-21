@@ -17,7 +17,8 @@ const LeadSchema = new Schema({
    },
    phone:{
     type: Number
-   }
+   },
+   assigneeId: String
 }
 )
 
