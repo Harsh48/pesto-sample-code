@@ -23,6 +23,15 @@ const getUsers = async(req,res)=>{
       }
 }
 
+const getUserById = async(req,res)=>{
+  try{
+      const user =await User.findById(req.param.id)
+      res.json(user)
+    }catch(err){
+      console.log(err)
+    }
+}
+
 // example of mongodb aggregation
 
  
@@ -79,7 +88,9 @@ const login = async(req,res)=>{
          user:{
           id: user._id,
           email: user.email,
-          role: user.role
+          role: user.role,
+          comapnyId: user.companyId,
+          name: user.name
          },
          access_token: jwt.sign({id:req.body.id,email},process.env.JWT_SECRET)
         })
@@ -116,5 +127,6 @@ module.exports ={ getUsers,
   updateUser, 
   deleteUser,
   register,
-  login
+  login,
+  getUserById
 }

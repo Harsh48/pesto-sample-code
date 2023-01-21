@@ -8,6 +8,7 @@ const authMiddleware = require('../middleware/auth')
 
 router.get('/api/users', authMiddleware, userController.getUsers)
 
+router.get('/api/users/:id', authMiddleware, userController.getUserById)
 
 router.post('/api/users', userController.createUser)
 
