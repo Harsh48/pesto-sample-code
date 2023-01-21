@@ -6,6 +6,7 @@ const User= require('./models/user.model')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDoc = require('./swagger.json')
 require('dotenv').config()
+const cors = require('cors')
 
 
 // connecting to db
