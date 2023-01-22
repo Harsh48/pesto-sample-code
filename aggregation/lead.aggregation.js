@@ -11,5 +11,7 @@ module.exports= function leadsAggretaion(id){
         as: 'lead'
       }},
       {$unwind:{ path: "$lead" }},
-    {$match:{"lead.companyId":id}}]
+    {$match:{"lead.companyId":id}},
+  {$project:{"name":1,"email":1, "title": "lead.title", "courseCode":"lead.courseCode", "_id":0
+}}]
 }
