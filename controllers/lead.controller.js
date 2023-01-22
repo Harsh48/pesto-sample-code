@@ -1,6 +1,7 @@
 const Lead = require('../models/lead.model')
 const Company = require('../models/company.model')
 const User = require('../models/user.model')
+const Status = require('../models/leadStatus.model')
 const leadsAggretaion = require('../aggregation/lead.aggregation')
 
 const getAllLeads = async(req,res)=>{
