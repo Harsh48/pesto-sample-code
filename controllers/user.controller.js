@@ -17,8 +17,9 @@ const getUsers = async(req,res)=>{
 }
 
 const getManagersByCompany = async(req,res)=>{
+  console.log(req.params)
   try{
-      const user =await User.find({role:'manager',companyId:req.params.companyId})
+      const user =await User.find({role:'manager',companyId:req.params.companyId},{firstname:1,lastname:1,email:1,_id:0,countryCode:1,phone:1})
       res.json(user)
     }catch(err){
       console.log(err)
@@ -26,8 +27,9 @@ const getManagersByCompany = async(req,res)=>{
 }
 
 const getSalesByCompany = async(req,res)=>{
+  console.log(req.params)
   try{
-      const user =await User.find({role:'sales',companyId:req.params.companyId})
+      const user =await User.find({role:'sales',companyId:req.params.companyId},{firstname:1,lastname:1,email:1,_id:0,countryCode:1,phone:1})
       res.json(user)
     }catch(err){
       console.log(err)
