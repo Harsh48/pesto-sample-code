@@ -7,13 +7,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-
-
-const s3 = new AWS.S3({
-    accessKeyId:process.env.ACCESS_KEY_ID,
-    secretAccessKey:process.env.SECRET_ACCESS_KEY
-})
-
 const getUsers = async(req,res)=>{
     try{
         const user =await User.find()

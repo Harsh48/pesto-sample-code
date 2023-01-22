@@ -11,6 +11,15 @@ const getAllLeads = async(req,res)=>{
       }
 }
 
+const getAllLeadsBySales = async(req,res)=>{
+    try{
+        const lead =await Lead.find({userId:req.query.id})
+        res.json(lead)
+      }catch(err){
+        console.log(err)
+      }
+}
+
 const getLeadsById = async(req,res)=>{
     try{
         const lead =await Lead.findById(req.params.id)
@@ -47,9 +56,40 @@ const assignLeads= async(req,res)=>{
       }
   }
 
+  const getAllRescheduledLeads = async(req,res)=>{
+    try{
+        const lead =await Status.find({status:'Reschedule',assigneeId:req.query.id})
+        res.json(lead)
+      }catch(err){
+        console.log(err)
+      }
+}
+
+const getAllFailedLeads = async(req,res)=>{
+    try{
+        const lead =await Status.find({status:'Failed',assigneeId,userId:req.query.id})
+        res.json(lead)
+      }catch(err){
+        console.log(err)
+      }
+}
+
+const getAllSucessLeads = async(req,res)=>{
+    try{
+        const lead =await Status.find({status:'Sccuess',assigneeId:req.query.id})
+        res.json(lead)
+      }catch(err){
+        console.log(err)
+      }
+}
+
 module.exports ={  
 createLeads,
 getAllLeads,
 getLeadsById,
-assignLeads
+assignLeads,
+getAllFailedLeads,
+getAllSucessLeads,
+getAllRescheduledLeads,
+getAllLeadsBySales
 }
