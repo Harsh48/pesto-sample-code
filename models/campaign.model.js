@@ -17,6 +17,9 @@ const CampaignSchema = new Schema({
    },
    price:{
     type: Number
+   },
+   companyId:{
+    type: String
    }
 }
 )
