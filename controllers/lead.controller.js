@@ -33,7 +33,8 @@ const getLeadsById = async(req,res)=>{
 const createLeads= async(req,res)=>{
   try{
       const company = await Company.find({apiKey:req.body.apiKey})
-      if(!company) return res.json({msg:'Api key is expired'})
+      if(!company[0]) return res.json({msg:'Api key is expired'})
+      console.log(company)
       const user = await User.find({companyId:company[0]._id})
       if(!user) return res.json({msg:'Api key is invalid'})
       const lead = await Lead.create(req.body)

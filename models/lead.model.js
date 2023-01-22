@@ -12,7 +12,7 @@ const LeadSchema = new Schema({
    countryCode:{
     type: String,
    },
-   CampaignId:{
+   campaignId:{
     type: String
    },
    phone:{

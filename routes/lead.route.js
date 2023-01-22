@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const leadController = require('../controllers/lead.controller')
 
-router.post('/api/create/lead',leadController.createLeads)
+router.post('/api/create/leads',leadController.createLeads)
 
 router.get('/api/leads',leadController.getAllLeads)
 
