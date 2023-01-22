@@ -66,6 +66,7 @@ const register = async(req,res)=>{
         countryCode: req.body.countryCode,
         phone: req.body.phone,
         role: req.body.role,
+        companyId: companyId,
         apiKey: uuid()
       })
       res.json({
@@ -84,13 +85,14 @@ const login = async(req,res)=>{
     if(user){
       const isMatch=await bcrypt.compare(password,user.password)
       if(isMatch){
+        console.log(user)
         res.json({
          user:{
           id: user._id,
           email: user.email,
           role: user.role,
-          comapnyId: user.companyId,
-          name: user.name
+          companyId: user.companyId,
+          name: user.firstname +' '+ user.lastname
          },
          access_token: jwt.sign({id:req.body.id,email},process.env.JWT_SECRET)
         })
