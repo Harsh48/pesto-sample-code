@@ -4,7 +4,7 @@ const User = require('../models/user.model')
 
 const getAllLeads = async(req,res)=>{
     try{
-        const lead =await Lead.find()
+        const lead =await Lead.find({campaignId:req.params.campaignId})
         res.json(lead)
       }catch(err){
         console.log(err)

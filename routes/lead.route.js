@@ -4,7 +4,7 @@ const leadController = require('../controllers/lead.controller')
 
 router.post('/api/create/leads',leadController.createLeads)
 
-router.get('/api/leads',leadController.getAllLeads)
+router.get('/api/leads/:campaignId',leadController.getAllLeads)
 
 router.get('/api/:userId/leads',leadController.getAllLeadsBySales)
 
