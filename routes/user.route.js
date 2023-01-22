@@ -8,6 +8,11 @@ const authMiddleware = require('../middleware/auth')
 
 router.get('/api/users', authMiddleware, userController.getUsers)
 
+
+router.get('/api/users/managers/:comapnyId', authMiddleware, userController.getManagersByCompany)
+
+router.get('/api/users/sales/:comapnyId', authMiddleware, userController.getSalesByCompany)
+
 router.get('/api/users/:id', authMiddleware, userController.getUserById)
 
 router.post('/api/users', userController.createUser)

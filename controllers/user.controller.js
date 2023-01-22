@@ -16,6 +16,24 @@ const getUsers = async(req,res)=>{
       }
 }
 
+const getManagersByCompany = async(req,res)=>{
+  try{
+      const user =await User.find({role:'manager',companyId:req.params.companyId})
+      res.json(user)
+    }catch(err){
+      console.log(err)
+    }
+}
+
+const getSalesByCompany = async(req,res)=>{
+  try{
+      const user =await User.find({role:'sales',companyId:req.params.companyId})
+      res.json(user)
+    }catch(err){
+      console.log(err)
+    }
+}
+
 const getUserById = async(req,res)=>{
   try{
       const user =await User.findById(req.param.id)
@@ -123,5 +141,7 @@ module.exports ={ getUsers,
   deleteUser,
   register,
   login,
-  getUserById
+  getUserById,
+  getManagersByCompany,
+  getSalesByCompany
 }

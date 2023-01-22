@@ -7,6 +7,7 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerDoc = require('./swagger.json')
 require('dotenv').config()
 const cors = require('cors')
+const PORT = process.env.PORT || 3005
 
 
 // connecting to db
@@ -39,4 +40,6 @@ app.use(function(req,res){
 
 
 
-app.listen(3005)
+app.listen(PORT,()=>{
+    console.log('app is running on port '+ PORT)
+})
