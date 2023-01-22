@@ -51,7 +51,14 @@ const getUserById = async(req,res)=>{
 
 const createUser = async(req,res)=>{
     try{
-        const user =await User.create(req.body)
+      const users = await User.findOne({email:req.body.email})
+      if(users) {
+        return res.json({
+          msg:"User Already Exist"
+        })
+      }
+        const password = await bcrypt.hash(req.body.password,10)
+        const user =await User.create({...req.body,password})
         res.json(user)
       }catch(err){
         console.log(err)
@@ -61,7 +68,6 @@ const createUser = async(req,res)=>{
 // hash the password
 
 const register = async(req,res)=>{
-  console.log(req.body)
   try{
       const user = await User.findOne({email:req.body.email})
       if(user) {
@@ -79,7 +85,7 @@ const register = async(req,res)=>{
         countryCode: req.body.countryCode,
         phone: req.body.phone,
         role: req.body.role,
-        companyId: companyId,
+        companyId:req.body.companyId,
         apiKey: uuid()
       })
       res.json({
