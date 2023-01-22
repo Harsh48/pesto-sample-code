@@ -1,6 +1,7 @@
 const Lead = require('../models/lead.model')
 const Company = require('../models/company.model')
 const User = require('../models/user.model')
+const leadsAggretaion = require('../aggregation/lead.aggregation')
 
 const getAllLeads = async(req,res)=>{
     try{
@@ -10,6 +11,16 @@ const getAllLeads = async(req,res)=>{
         console.log(err)
       }
 }
+
+const getAllLeadsByCompany = async(req,res)=>{
+    try{
+        const lead =await Lead.aggregate(leadsAggretaion(req.params.companyId))
+        res.json(lead)
+      }catch(err){
+        console.log(err)
+      }
+}
+
 
 const getAllLeadsBySales = async(req,res)=>{
     try{
@@ -92,5 +103,6 @@ assignLeads,
 getAllFailedLeads,
 getAllSucessLeads,
 getAllRescheduledLeads,
-getAllLeadsBySales
+getAllLeadsBySales,
+getAllLeadsByCompany
 }

@@ -1,5 +1,5 @@
 const ObjectId = require('mongoose').Types.ObjectId
-const userAggretaion = require('../aggregation/user.aggregation')
+const userAggretaion = require('../aggregation/lead.aggregation')
 const User = require('../models/user.model')
 const AWS = require('aws-sdk')
 const uuid = require('uuid').v4;

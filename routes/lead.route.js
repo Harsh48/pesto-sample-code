@@ -6,6 +6,8 @@ router.post('/api/create/leads',leadController.createLeads)
 
 router.get('/api/leads/:campaignId',leadController.getAllLeads)
 
+router.get('/api/leads/company/:companyId',leadController.getAllLeadsByCompany)
+
 router.get('/api/:userId/leads',leadController.getAllLeadsBySales)
 
 router.get('/api/:userId/leads/success',leadController.getAllSucessLeads)
