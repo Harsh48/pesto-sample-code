@@ -18,7 +18,7 @@ router.get('/api/:userId/leads/rescheduled',leadController.getAllRescheduledLead
 
 router.get('/api/leads/:id',leadController.getLeadsById)
 
-router.patch('/api/leads/:id',leadController.assignLeads)
+router.patch('/api/leads/:email',leadController.assignLeads)
 
 
 

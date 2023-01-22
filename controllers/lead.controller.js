@@ -61,7 +61,8 @@ const createLeads= async(req,res)=>{
 
 const assignLeads= async(req,res)=>{
     try{
-        await Lead.findByIdAndUpdate(req.params.id,{assigneeId:req.body.assigneeId})
+        const user = await User.findOne({email:req.body.email})
+        await Lead.findByIdAndUpdate(req.params.id,{assigneeId:user._id})
         res.json({msg:'Lead successfully assigned to Sales'})
       }catch(err){
         console.log(err)
