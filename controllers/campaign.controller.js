@@ -2,7 +2,7 @@ const Campaign = require('../models/campaign.model')
  
 const getAllCampaign = async(req,res)=>{
     try{
-        const campaign =await Campaign.find()
+        const campaign =await Campaign.find({companyId:req.params.companyId})
         res.json(campaign)
       }catch(err){
         console.log(err)
